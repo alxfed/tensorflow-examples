@@ -1,5 +1,6 @@
 # Script must be run inside kuberlab task. 
 #
+import os
 from mlboardclient.api import client
 
 
@@ -14,6 +15,9 @@ data = {
     'lr.save_checkpoints_secs': 600,
     'lr.save_checkpoints_steps': 20,
     'lr.save_summary_steps': 10,
+    'without_main_int': 125,
+    'without_main_str': 'param',
+    'name': 'my-super-job-%s' % os.environ.get('BUILD_ID', '1'),
     'main.batch_size': 8,
     'main.beam_search_decoder': False,
     'main.checkpoint_path': '/notebooks/training/EXP126.5x1024_B8',
